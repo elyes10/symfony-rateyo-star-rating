@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cinema index{% endblock %}
+
+{% block body %}
+<div class="row">
+        <div  style="display: flex;align-items: center;justify-content: center;margin-top: 30px; padding: 20px;">
+   
+
+    <table class="table table-striped table-hover table-white" >
+        <thead>
+            <tr>
+                <th>idCin</th>
+                <th>Nom</th>
+				<th>Adresse</th>
+                <th>nombre de place</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cinema in cinemas %}
+            <tr>
+                <td>{{ cinema.idCin }}</td>
+                <td>{{ cinema.nom }}</td>
+                <td>{{ cinema.adresse }}</td>
+                <td>{{ cinema.nbreP}}</td>
+                <td>
+                    <a class="btn btn-outline-light" href="{{ path('app_cinema_show', {'idCin': cinema.idCin}) }}">afficher</a>
+                    </td>
+					<td>
+					<a class="btn btn-info" href="{{ path('app_cinema_edit', {'idCin': cinema.idCin}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="row align-items-end">
+<div class="col">
+<div class="position-absolute top-50 start-50 translate-middle">
+    <a href="{{ path('app_cinema_new') }}" class="btn btn-primary btn-lg" >créer</a>
+    </div>
+	</div>
+	</div>
+	</div>
+    </div>
+{% endblock %}

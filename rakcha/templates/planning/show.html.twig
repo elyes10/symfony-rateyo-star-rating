@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planning{% endblock %}
+
+{% block body %}
+   
+    <div class="row">
+        <div  style="display: flex;align-items: center;justify-content: center;margin-top: 30px; padding: 20px;">
+
+    <table class="table table-striped table-hover table-white">
+        <tbody>
+            <tr>
+                <th>IdP</th>
+                <td>{{ planning.idP }}</td>
+            </tr>
+            <tr>
+                <th>IdCin</th>
+                <td>{{ planning.idCin }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ planning.date }}</td>
+            </tr>
+            <tr>
+                <th>NomF</th>
+                <td>{{ planning.nomF }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+
+    <a class="btn btn-outline-light" href="{{ path('app_planning_index') }}">retour à la liste</a>
+
+    <a class="btn btn-outline-light" href="{{ path('app_planning_edit', {'idP': planning.idP}) }}">modifier</a>
+
+    {{ include('planning/_delete_form.html.twig') }}
+{% endblock %}
